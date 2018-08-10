@@ -63,14 +63,18 @@ yarn remove -D package-you-want-removed
 ```
 
 
+## Setup 
+First run gulp to compile Foundation files
+```bash
+yarn gulp
+```
+You should only have to do this once.
 
-
-## Watching SASS and Javascript Files 
 To watch your SASS files and Javascript run:
 ```bash
 yarn watch
 ```
-This will run Gulp and Webpack and watch for whenever any of these files are saved then recompiles.
+This will watch your JS and SASS files for any changes and then compile.
 
 
 
