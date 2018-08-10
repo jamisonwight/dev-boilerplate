@@ -1,0 +1,54 @@
+.home-banner,
+.home-about {
+
+    h2,
+    h3,
+    p {
+        color: $white
+    }
+
+    p {
+        text-align: center;
+        @include mq(medium) {
+            font-size: 22px;
+        }
+    }
+}
+
+.video {
+    @include mq(small) {
+        padding-bottom: 1rem;
+    }
+}
+
+.element {
+    img {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+
+.slide {
+    .wrapper {
+        position: relative !important;
+        left: unset !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        padding-top: 0 !important;
+    }
+    @media only screen and (min-width: 768px) {
+        .section {
+            text-align: center !important;
+            max-width: unset !important;
+            width: 100%;
+        }
+    }
+}
+
+.section img {
+    width: 50%;
+}
+
+
