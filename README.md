@@ -4,7 +4,7 @@ This is a modification of the JointsWP SASS boilerplate using Foundation 6
 Open up your terminal and navigate to the Wordpress themes folder and clone the repo files. 
 ```bash
 $ cd my-wordpress-folder/wp-content/themes/
-$ git clone https://gitlab.com/jmsnwight/Departika-Starter.git
+$ git clone https://github.com/departika/dev-boilerplate.git
 $ cd departika-theme
 ```
 
