@@ -23,7 +23,7 @@ $ brew install yarn --without-node
 
 
 ## Install Gulp
-Gulp is used to compile SASS. We use NPM instead of Yarn so we can install it globally
+Gulp is used to compile the Foundation SASS. We use NPM instead of Yarn so we can install it globally
 ```bash
 npm install -g gulp-cli
 ```
