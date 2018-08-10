@@ -5,7 +5,7 @@ Open up your terminal and navigate to the Wordpress themes folder and clone the 
 ```bash
 $ cd my-wordpress-folder/wp-content/themes/
 $ git clone https://github.com/departika/dev-boilerplate.git
-$ cd departika-theme
+$ cd departika
 ```
 
 
