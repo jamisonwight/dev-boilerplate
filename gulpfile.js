@@ -4,7 +4,11 @@ var gulp  = require('gulp'),
     gutil = require('gulp-util'),
     browserSync = require('browser-sync').create(),
     filter = require('gulp-filter'),
-	plugin = require('gulp-load-plugins')();
+	plugin = require('gulp-load-plugins')(),
+	cleanCSS = require('gulp-clean-css'),
+	uglify = require('gulp-uglify'),
+	minify = require('gulp-minify'),
+	pump = require('pump');
     
  
 // GULP VARIABLES   
@@ -164,19 +168,46 @@ gulp.task('browsersync', function() {
 
 });
 
+// Run styles, scripts and foundation-js
+gulp.task('default', ['images', 'scripts']);
+
+
+
+var webpackJS = './dist/main.js',
+	webpackCSS = './dist/css/style.css',
+	minifyDest = './dist/min/';
+
 // Watch files for changes (without Browser-Sync)
-gulp.task('watch', function() {
+gulp.task('minify-watch', function() {
 
 	// Watch .scss files
 	//gulp.watch(SOURCE.styles, gulp.parallel('styles'));
 	
 	// Watch scripts files
-	gulp.watch(SOURCE.scripts, gulp.parallel('scripts'));
+	gulp.watch(webpackJS, ['minify-js']);
 	
 	// Watch images files
-	gulp.watch(SOURCE.images, gulp.parallel('images'));
+	gulp.watch(webpackCSS, ['minify-css']);
   
 }); 
 
-// Run styles, scripts and foundation-js
-gulp.task('default', gulp.parallel('images', 'scripts'));
+gulp.task('minify-css', () => {
+	return gulp.src(webpackCSS)
+	  .pipe(cleanCSS({compatibility: 'ie8'}))
+	  .pipe(gulp.dest(minifyDest));
+});
+
+gulp.task('minify-js', () => {
+	return gulp.src(webpackJS)
+		.pipe(minify({
+			ext:{
+				src:'-debug.js',
+				min:'.js'
+			},
+			exclude: ['tasks'],
+			ignoreFiles: ['.combo.js', '-min.js']
+		}))
+		.pipe(gulp.dest(minifyDest));
+});
+
+gulp.task('minify', ['minify-css', 'minify-js']);
