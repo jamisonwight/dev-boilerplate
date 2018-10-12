@@ -58,14 +58,15 @@
     "stylefire": "^1.2.15",
     "url-loader": "^1.0.1",
     "webpack": "^4.6.0",
-    "webpack-cli": "^2.0.15"
+    "webpack-cli": "^2.0.15",
+    "webpack-dashboard": "^2.0.0"
   },
   "scripts": {
     "build": "gulp",
     "styles": "gulp styles",
     "images": "gulp images",
     "watch-gulp": "gulp watch",
-    "watch-js": "webpack --watch & gulp minify-watch",
+    "watch-js": "webpack --watch & gulp minify-watch & webpack-dashboard",
     "browsersync": "gulp browsersync",
     "update-foundation": "npm install foundation-sites",
     "watch": "npm run watch-js"

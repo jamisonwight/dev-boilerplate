@@ -1,5 +1,6 @@
 var path = require('path');
 var glob = require('glob');
+var DashboardPlugin = require('webpack-dashboard/plugin');
 
 module.exports = {
     entry:   ['./assets/scripts/js/main.js', './assets/styles/scss/style.scss'],
@@ -85,4 +86,7 @@ module.exports = {
     node: {
       fs: "empty"
     },
+    plugins: [
+        new DashboardPlugin()
+    ]
 }
