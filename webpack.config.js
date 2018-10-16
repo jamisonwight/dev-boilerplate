@@ -1,6 +1,6 @@
 var path = require('path');
 var glob = require('glob');
-var DashboardPlugin = require('webpack-dashboard/plugin');
+// var DashboardPlugin = require('webpack-dashboard/plugin');
 
 module.exports = {
     entry:   ['./assets/scripts/js/main.js', './assets/styles/scss/style.scss'],
@@ -44,9 +44,9 @@ module.exports = {
                     {
                         loader: 'sass-loader',
                     },
-                    {
-                        loader: 'resolve-url-loader',
-                    },
+                    // {
+                    //     loader: 'resolve-url-loader',
+                    // },
 
                 ],
             },
@@ -86,7 +86,7 @@ module.exports = {
     node: {
       fs: "empty"
     },
-    plugins: [
-        new DashboardPlugin()
-    ]
+    // plugins: [
+    //     new DashboardPlugin()
+    // ]
 }

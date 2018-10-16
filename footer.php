@@ -15,6 +15,21 @@
 		
 		<?php wp_footer(); ?>
 
+
+		<!-- SET AGE GATE PROPERTIES -->
+		<?php 
+			$age_gate = (object) array(
+				'brand'						=> 		  'Set this is the brand name',
+				'background-image'			=> 		  IMG_PATH.'/path-to-background-image',
+				'brand_logo'				=>		  IMG_PATH.'/path-to-brand-logo-image',
+				'age_heading'				=>		  'Are you 21 or older?',
+				'terms_of_service'  		=>		  'terms-of-service.html',
+				'privacy_policy'			=>		  'privacy-policy.html',
+				'regret_text'				=>		  'You must be 21 years of age or older to view this site.',
+
+			); 
+		?>
+
 		<!-- <script>
 
 			(function(factory){var jQuery;if(typeof define==='function'&&define.amd){define(['jquery'],factory);}else if(typeof exports==='object'){try{jQuery=require('jquery');}catch(e){}
@@ -52,18 +67,18 @@
 					av_showmodal = function() {
 						modal_screen = $('<div id="modal_screen" class="age_gate"></div>');
 						modal_content = $('<div id="modal_content" style="display:none"></div>');
-						var modal_content_wrapper = $('<div id="modal_content_wrapper" class="content_wrapper bubbles" style="background: url(<?php echo IMG_PATH; ?>/md_agegate_bubbles.png" />);"></div>');
+						var modal_content_wrapper = $('<div id="modal_content_wrapper" class="content_wrapper bubbles" style="background: url(<?php echo $age_gate->background_image ?>" />);"></div>');
 						var modal_regret_wrapper = $('<div id="modal_regret_wrapper" class="content_wrapper" style="display:none;"></div>');
 						var content_agegate = $(
 							`
-								<img class="agegate-cans padding-xsmall" src="<?php echo IMG_PATH; ?>/agegate-logo.png" />
-								<h1 class="text-center padding-small">Are you 21 or older?</h1>
-								<div class="agree"><input type="checkbox" id="agree" class="btn-default" required></input></a>I agree to the <a data-fancybox data-type="iframe" data-src="terms-of-service.html" href="javascript:;">Terms of Service and Privacy Policy</a></div>
+								<img class="agegate-cans padding-xsmall" src="<?php echo $age_gate->brand_logo ?>" />
+								<h1 class="text-center padding-small"><?php echo $age_gate->age_heading ?>/h1>
+								<div class="agree"><input type="checkbox" id="agree" class="btn-default" required></input></a>I agree to the <a data-fancybox data-type="iframe" data-src="<?php echo $age_gate->terms_of_service ?>" href="javascript:;">Terms of Service</a> and <a data-fancybox data-type="iframe" data-src="<?php echo $age_gate->privacy_policy ?>" href="javascript:;">Privacy Policy</a></div>
 								<nav class="padding-small"><ul><li><a href="#" class="av_btn btn-default" rel="yes" id="yes">Yes</a></li><li><a href="#" class="av_btn btn-default" rel="no" id="no">No</a></li></nav>	
 								
 							`
 						);
-						var regret_text = $('<h2>You must be 21 years of age or older to view this site.</h2>');
+						var regret_text = $('<h2><?php echo $age_gate->regret_text ?></h2>');
 						modal_content_wrapper.append(content_agegate);
 						modal_regret_wrapper.append(regret_text);
 						modal_content.append(modal_content_wrapper, modal_regret_wrapper);

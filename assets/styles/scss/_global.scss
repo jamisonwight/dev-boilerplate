@@ -26,13 +26,10 @@ h3,
 h4,
 .menu-item a,
 .btn-default{
-	font-family: Knockout !important;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 h1 {
-	text-align: center;
-    text-transform: uppercase;
-    font-weight: bold;
 	@include mq(small) {
 		font-size: 12vw;
 	}
@@ -42,9 +39,6 @@ h1 {
 }
 
 h2 {
-	text-align: center;
-    text-transform: uppercase;
-	font-weight: bold;
 	@include mq(small) {
 		font-size: 15vw;
 	}
@@ -57,9 +51,6 @@ h2 {
 }
 
 h3 {
-	text-align: center;
-    text-transform: uppercase;
-	font-weight: bold;
 	@include mq(small) {
 		font-size: 11vw;
 	}

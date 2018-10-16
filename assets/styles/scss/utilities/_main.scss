@@ -6,12 +6,40 @@
     padding: 2rem 0;
 }
 
+.padding-large {
+    padding: 5rem 0;
+}
+
 .no-padding {
     padding: 0 !important;
 }
 
 .text-center {
     text-align: center;
+}
+
+.uppercase {
+    text-transform: uppercase !important;
+}
+
+.white {
+    color: $white;
+}
+
+.black {
+    color: $black;
+}
+
+.grey {
+    color: $grey;
+}
+
+.grey-dark {
+    color: $grey-dark;
+}
+
+.red {
+    color: $red;
 }
 
 .orange {

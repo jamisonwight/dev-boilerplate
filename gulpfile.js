@@ -8,6 +8,7 @@ var gulp  = require('gulp'),
 	cleanCSS = require('gulp-clean-css'),
 	uglify = require('gulp-uglify'),
 	minify = require('gulp-minify'),
+	imagemin = require('gulp-imagemin'),
 	pump = require('pump');
     
  
@@ -175,27 +176,37 @@ gulp.task('default', ['images', 'scripts']);
 
 var webpackJS = './dist/main.js',
 	webpackCSS = './dist/css/style.css',
-	minifyDest = './dist/min/';
+	imageSrc = './assets/images/*',
+	minifyDest = './dist/min/',
+	imageDest = './dist/images';
 
 // Watch files for changes (without Browser-Sync)
 gulp.task('minify-watch', function() {
 
-	// Watch .scss files
-	//gulp.watch(SOURCE.styles, gulp.parallel('styles'));
-	
 	// Watch scripts files
 	gulp.watch(webpackJS, ['minify-js']);
 	
-	// Watch images files
+	// Watch CSS files
 	gulp.watch(webpackCSS, ['minify-css']);
+
+	// Watch images files
+	gulp.watch(imageSrc, ['minify-images']);
   
 }); 
 
 gulp.task('minify-css', () => {
 	return gulp.src(webpackCSS)
+	  .pipe(plugin.autoprefixer({
+			browsers: [
+				'last 2 versions',
+				'ie >= 9',
+				'ios >= 7'
+			],
+			cascade: false
+	   }))
 	  .pipe(cleanCSS({compatibility: 'ie8'}))
 	  .pipe(gulp.dest(minifyDest));
-});
+});  
 
 gulp.task('minify-js', () => {
 	return gulp.src(webpackJS)
@@ -208,6 +219,12 @@ gulp.task('minify-js', () => {
 			ignoreFiles: ['.combo.js', '-min.js']
 		}))
 		.pipe(gulp.dest(minifyDest));
+});
+
+gulp.task('minify-images', () => {
+	return gulp.src(imageSrc)
+		.pipe(imagemin())
+		.pipe(gulp.dest(imageDest));
 });
 
 gulp.task('minify', ['minify-css', 'minify-js']);
