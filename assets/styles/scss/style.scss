@@ -36,6 +36,8 @@ CSS file.
 @include foundation-flex-grid;
 @include foundation-xy-grid-classes;
 
+
+// REMOVE SASS MODULES NOT BEING USED
 @include foundation-flex-classes;
 @include foundation-typography;
 @include foundation-forms;
