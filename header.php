@@ -32,6 +32,9 @@
 
 		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
+		<!-- Google Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Karla|Source+Serif+Pro:400,600,700" rel="stylesheet">
+
 		<?php wp_head(); ?>
 
 	</head>
@@ -46,10 +49,22 @@
 			
 			<div class="off-canvas-content" data-off-canvas-content>
 				
-				<header class="header" role="banner">
+				<header class="header grid-container full" role="banner">
 							
-					 <!-- This navs will be applied to the topbar, above all content 
-						  To see additional nav styles, visit the /parts directory -->
-					 <?php get_template_part( 'parts/nav', 'title-bar' ); ?>
+					<div class="grid-x">
+					
+						<div class="cell medium-6 logo">
+							<div class="content">
+								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png" alt="Logo Icon">
+								<span>William Cover<br> Architecture</span>
+							</div>
+						</div>
+
+						<div class="cell medium-6 menu">
+							<a href="<?php echo bloginfo('url'); ?>/about">About</a>
+							<a href="<?php echo bloginfo('url'); ?>/contact">Contact</a>
+						</div>
+
+					</div>
 	 	
 				</header> <!-- end .header -->

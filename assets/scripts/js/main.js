@@ -1,3 +1,9 @@
+// import main SASS file
+import '../../styles/scss/style.scss'
+
+// Import Foundation
+import 'foundation-sites'
+
 // import JS modules to compile
 import './init-foundation'
 import './wp-foundation'

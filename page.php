@@ -12,8 +12,7 @@ get_header(); ?>
 		<div class="inner-content grid-x grid-margin-x grid-padding-x">
 	
 		    <main class="main cell" role="main">
-				
-				<h1>You did it. Congrats ...Now start building</h1>
+			
 								
 			</main> <!-- end #main -->
 		    

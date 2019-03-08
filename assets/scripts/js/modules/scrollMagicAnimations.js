@@ -1,7 +1,7 @@
 import scrollMagic from 'scrollmagic'
 import { TweenMax } from 'gsap'
-import 'imports-loader?define=>false!scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap';
-import 'imports-loader?define=>false!scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js';
+import 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap';
+import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js';
 
 
     // // Init ScrollMagic
