@@ -1,0 +1,56 @@
+$fonts: (
+    roman: 'mrs-eaves-roman-all-petite-c, sans-serif;',
+    italic: 'lamar-pen, sans-serif;',
+    regular: 'baskerville-urw, serif;',
+);
+
+@mixin font(
+    $fontFamily,  
+    $color: null, 
+    $weight: null, 
+    $size: null,
+    $transform: null,
+) {
+    // Set Font Family
+    @if map-has-key($fonts, $fontFamily) {
+      $fontFamily: map-get($fonts, $fontFamily);
+    }
+    font-family: #{$fontFamily};
+    // Font Color
+    @if ($color) {
+        color: #{$color};
+    }
+    // Font Weight
+    @if ($weight) {
+        font-weight: #{$weight};
+    }
+    // Font Size
+    @if ($size) {
+        font-size: #{$size};
+    }
+    // Text transform
+    @if ($transform) {
+        text-transform: #{$transform};
+    }  
+}
+
+@mixin text($textAlign: null, $transform: null, $letterSpacing: null, $lineHeight: null, $decoration: null) {
+    text-rendering: optimizeLegibility;
+
+    @if ($textAlign) {
+        text-align: #{$textAlign};
+    }
+    @if ($letterSpacing) {
+        letter-spacing: #{$letterSpacing};
+    }
+    @if ($lineHeight) {
+        line-height: #{$lineHeight};
+    }
+    @if ($transform) {
+        text-transform: #{$transform};
+    }
+    @if ($decoration) {
+        text-decoration: #{$decoration};
+    }  
+}
+  

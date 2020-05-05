@@ -1,11 +1,6 @@
-import fancybox from '@fancyapps/fancybox'
 
-$(document).ready(function() {
-    $('[data-fancybox]').fancybox({
-        vimeo : {
-            color : 'f00'
-        }
-    });
-});
+import '@fancyapps/fancybox/dist/jquery.fancybox'
 
-
+jQuery(document).ready(function($) {
+    $('[data-fancybox]').fancybox()
+})
